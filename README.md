@@ -19,6 +19,11 @@
  
  使用方法：
  将项目clone 本地，打maven 包 到本地，在自己项目中引用
+ 
+ maven 打包命令：
+ mvn install:install-file -Dfile=/Users/caorong/work/jar/flink-connector-mysql-cdc-2.3-SNAPSHOT.jar -DgroupId=com.pulan.flink -DartifactId=pulan-flink-cdc-mysql-2.12 - 
+ Dversion=2.2.1 -Dpackaging=jar
+ 
       MySqlSource<String> mySqlSource = MySqlSource.<String>builder()
                 .hostname("")
                 .port(3306)
