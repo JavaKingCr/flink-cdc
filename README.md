@@ -1,3 +1,6 @@
+
+flink 支持mysql 无主键数据同步
+
 概述：修改源代码中 mysql 连接器  StartupOptions.initial 全量同步无主键表异常
 
 问题：开源cdc 2.2.0 中 同步mysql 采用了全新的chunk 算法 https://flink-learning.org.cn/article/detail/3ebe9f20774991c4d5eeb75a141d9e1e,此算法全量同步表时包含两个步骤 全量读取chunk 以及合并读取chunk 时 binlog 的lowWatermark 和 highWatermark 的增量部分，在全量读取完成后会与增量部分的binlog合并，由于表没有主键 所以增量部分的binlog 无法替换全量中的数据（针对同一条数据而言），在源码中ChunkUtils.getChunkKeyColumn 
